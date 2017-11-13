@@ -1,5 +1,4 @@
 ﻿namespace News.Repositories {
-    public interface ICachedNewsRepository {
-        
+    public interface ICachedNewsRepository : INewsRepository {
     }
 }

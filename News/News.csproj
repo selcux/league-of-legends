@@ -178,6 +178,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\CacheConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\UnityConfig.cs" />
@@ -191,12 +192,20 @@
       <DependentUpon>201711122144293_InitialCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\BaseModel.cs" />
     <Compile Include="Models\NewsModel.cs" />
+    <Compile Include="Models\StaticValues.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\CachedNewsRepository.cs" />
+    <Compile Include="Repositories\IBaseRepository.cs" />
+    <Compile Include="Repositories\ICachedNewsRepository.cs" />
     <Compile Include="Repositories\INewsDbContext.cs" />
     <Compile Include="Repositories\INewsRepository.cs" />
+    <Compile Include="Repositories\IRepository.cs" />
     <Compile Include="Repositories\NewsDbContext.cs" />
     <Compile Include="Repositories\NewsRepository.cs" />
+    <Compile Include="Services\CacheService\INewsCacheService.cs" />
+    <Compile Include="Services\CacheService\NewsCacheService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />

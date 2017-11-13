@@ -1,5 +1,6 @@
 using System;
 using News.Repositories;
+using News.Services.CacheService;
 using Unity;
 
 namespace News
@@ -46,6 +47,9 @@ namespace News
             container.RegisterType<INewsDbContext, NewsDbContext>();
 
             container.RegisterType<INewsRepository, NewsRepository>();
+            container.RegisterType<ICachedNewsRepository, CachedNewsRepository>();
+            
+            container.RegisterType<INewsCacheService, NewsCacheService>();
         }
     }
 }

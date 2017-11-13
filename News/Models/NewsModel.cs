@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace News.Models {
     [Table("News")]
-    public class NewsModel {
+    public class NewsModel : BaseModel {
         [Key]
         public int Id { get; set; }
 

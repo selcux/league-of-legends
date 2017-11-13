@@ -1,4 +1,4 @@
 ﻿namespace News.Repositories {
-    public abstract class BaseRepository {
+    public interface IBaseRepository {
     }
 }

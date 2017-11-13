@@ -5,37 +5,37 @@ using News.Models;
 
 namespace News.Repositories {
     public class NewsRepository : INewsRepository {
-        private readonly INewsDbContext _dbContext;
+        protected readonly INewsDbContext DbContext;
 
         public NewsRepository(INewsDbContext dbContext) {
-            _dbContext = dbContext;
+            DbContext = dbContext;
         }
 
-        public IEnumerable<NewsModel> Get() =>
-            _dbContext.News;
+        public virtual IEnumerable<NewsModel> Get() =>
+            DbContext.News;
 
-        public async Task<NewsModel> Get(int id) =>
-            await _dbContext.News.FindAsync(id);
+        public virtual async Task<NewsModel> Get(int id) =>
+            await DbContext.News.FindAsync(id);
 
-        public async Task Add(NewsModel model) {
-            _dbContext.News.Add(model);
+        public virtual async Task Add(NewsModel model) {
+            DbContext.News.Add(model);
 
-            await _dbContext.SaveChangesAsync();
+            await DbContext.SaveChangesAsync();
         }
 
-        public async Task Update(NewsModel model) {
-            _dbContext.Entry(model).State = EntityState.Modified;
+        public virtual async Task Update(NewsModel model) {
+            DbContext.Entry(model).State = EntityState.Modified;
 
-            await _dbContext.SaveChangesAsync();
+            await DbContext.SaveChangesAsync();
         }
 
-        public async Task Remove(int id) {
+        public virtual async Task Remove(int id) {
             var model = await Get(id);
 
             if (model != null) {
-                _dbContext.News.Remove(model);
+                DbContext.News.Remove(model);
 
-                await _dbContext.SaveChangesAsync();
+                await DbContext.SaveChangesAsync();
             }
         }
     }
