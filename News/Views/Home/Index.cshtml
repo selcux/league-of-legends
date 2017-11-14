@@ -14,7 +14,7 @@
 
 <div>
     @if (ViewBag.Page > 1) {
-        @Html.ActionLink("<<", "Index", new {Page = ViewBag.Page + 1})
+        @Html.ActionLink("<<", "Index", new {Page = ViewBag.Page - 1})
     }
 
     @if (ViewBag.Page < ViewBag.PageCount) {
