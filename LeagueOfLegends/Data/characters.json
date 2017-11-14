@@ -1,0 +1,23 @@
+﻿{
+  "Warriors": [
+    {
+      "name": "Ashe",
+      "healthPoint": 100,
+      "attachPoint": 50
+    }
+  ],
+  "Mages": [
+    {
+      "name": "Annie",
+      "healthPoint": 100,
+      "attachPoint": 50
+    }
+  ],
+  "Supports": [
+    {
+      "name": "Alistar",
+      "healthPoint": 100,
+      "attachPoint": 50
+    }
+  ]
+}
