@@ -2,6 +2,6 @@
 
 namespace LeagueOfLegends.Models.Characters.ItemSets {
     public interface ISupportItemSet {
-        BaseAttackItem AttackItem { get; }
+        BaseAttackItem AttackItem { get; set; }
     }
 }

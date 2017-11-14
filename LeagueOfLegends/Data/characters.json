@@ -3,20 +3,20 @@
     {
       "name": "Ashe",
       "healthPoint": 100,
-      "attachPoint": 50
+      "attachPoint": 80
     }
   ],
   "Mages": [
     {
       "name": "Annie",
-      "healthPoint": 100,
-      "attachPoint": 50
+      "healthPoint": 70,
+      "attachPoint": 110
     }
   ],
   "Supports": [
     {
       "name": "Alistar",
-      "healthPoint": 100,
+      "healthPoint": 130,
       "attachPoint": 50
     }
   ]

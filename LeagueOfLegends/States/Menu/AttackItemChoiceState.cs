@@ -1,6 +1,6 @@
 ﻿namespace LeagueOfLegends.States.Menu {
-    public class ItemChoiceState : MenuState {
-        public ItemChoiceState(MenuManager manager)
+    public class AttackItemChoiceState : MenuState {
+        public AttackItemChoiceState(MenuManager manager)
             : base(manager) {
         }
 

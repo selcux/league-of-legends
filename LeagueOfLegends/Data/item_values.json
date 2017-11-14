@@ -1,0 +1,18 @@
+﻿[
+  {
+    "warrior": {
+      "blueMagic": 10,
+      "greenMagic": 5,
+      "melee": 20,
+      "ranged": 50
+    },
+    "mage": {
+      "blueMagic": 50,
+      "greenMagic": 30
+    },
+    "support": {
+      "melee": 10,
+      "ranged": 20
+    }
+  }
+]

@@ -1,5 +1,7 @@
-﻿namespace LeagueOfLegends.Models.Items.Health {
+﻿using LeagueOfLegends.Models.Characters;
+
+namespace LeagueOfLegends.Models.Items.Health {
     public abstract class BaseHealthItem : BaseItem {
-        public int Hp { get; set; }
+        public abstract int Hp(BaseCharacter character);
     }
 }

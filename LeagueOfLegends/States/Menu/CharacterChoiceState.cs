@@ -25,7 +25,7 @@ namespace LeagueOfLegends.States.Menu {
             }
 
             var character = characters[choice - 1];
-            var nextState = new ItemChoiceState(_manager);
+            var nextState = new HealthItemChoiceState(_manager);
 
             _manager.SetData(nextState, character);
             _manager.State = nextState;

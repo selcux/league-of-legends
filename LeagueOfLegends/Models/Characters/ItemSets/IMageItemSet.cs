@@ -2,6 +2,6 @@
 
 namespace LeagueOfLegends.Models.Characters.ItemSets {
     public interface IMageItemSet {
-        BaseHealthItem HealthItem { get; }
+        BaseHealthItem HealthItem { get; set; }
     }
 }

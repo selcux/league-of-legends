@@ -3,7 +3,7 @@ using LeagueOfLegends.Models.Items.Health;
 
 namespace LeagueOfLegends.Models.Characters.ItemSets {
     public interface IWarriorItemSet {
-        BaseAttackItem AttackItem { get; }
-        BaseHealthItem HealthItem { get; }
+        BaseAttackItem AttackItem { get; set; }
+        BaseHealthItem HealthItem { get; set; }
     }
 }

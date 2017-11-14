@@ -2,12 +2,14 @@
 using System.IO;
 using LeagueOfLegends.Models.Characters;
 using LeagueOfLegends.Models.Data;
-using LeagueOfLegends.Models.Items;
 using Newtonsoft.Json;
 
 namespace LeagueOfLegends.Helpers {
-    public class DataProvider {
+    public static class DataProvider {
         private const string CharacterFilePath = @"Data\characters.json";
+        private const string ItemFilePath = @"Data\item_values.json";
+
+        private static ItemData _itemData;
 
         public static string Read(string filePath) => File.ReadAllText(filePath);
 
@@ -20,5 +22,10 @@ namespace LeagueOfLegends.Helpers {
 
             return characters;
         }
+
+        public static ItemData GetItems() =>
+            JsonConvert.DeserializeObject<ItemData>(Read(ItemFilePath));
+
+        public static ItemData ItemData => _itemData ?? (_itemData = GetItems());
     }
 }

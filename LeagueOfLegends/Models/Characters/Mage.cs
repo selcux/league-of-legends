@@ -3,15 +3,17 @@ using LeagueOfLegends.Models.Items.Health;
 
 namespace LeagueOfLegends.Models.Characters {
     public class Mage : BaseCharacter, IMageItemSet {
-        public BaseHealthItem HealthItem { get; }
+        private int _healthPoint;
 
-        public Mage(
-            string name,
-            int healthPoint,
-            int attachPoint,
-            BaseHealthItem healthItem)
-            : base(name, healthPoint, attachPoint) {
-            HealthItem = healthItem;
+        public BaseHealthItem HealthItem { get; set; }
+
+        public override int HealthPoint {
+            get => _healthPoint + (HealthItem?.Hp(this) ?? 0);
+            set => _healthPoint = value;
+        }
+
+        public Mage(string name)
+            : base(name) {
         }
     }
 }

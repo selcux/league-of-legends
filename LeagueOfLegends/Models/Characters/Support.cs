@@ -3,14 +3,17 @@ using LeagueOfLegends.Models.Items.Attack;
 
 namespace LeagueOfLegends.Models.Characters {
     public class Support : BaseCharacter, ISupportItemSet {
-        public BaseAttackItem AttackItem { get; }
+        private int _attachPoint;
 
-        public Support(string name,
-            int healthPoint,
-            int attachPoint,
-            BaseAttackItem attackItem)
-            : base(name, healthPoint, attachPoint) {
-            AttackItem = attackItem;
+        public BaseAttackItem AttackItem { get; set; }
+
+        public override int AttachPoint {
+            get => _attachPoint + (AttackItem?.Xp(this) ?? 0);
+            set => _attachPoint = value;
+        }
+
+        public Support(string name)
+            : base(name) {
         }
     }
 }
