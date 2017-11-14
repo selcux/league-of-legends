@@ -11,7 +11,7 @@ namespace LeagueOfLegends.States.Menu {
             set {
                 _state = value;
 
-                _state.Execute();
+                _state?.Execute();
             }
         }
 
@@ -33,6 +33,10 @@ namespace LeagueOfLegends.States.Menu {
 
         public void SetData(MenuState key,
             object data) {
+            if (key == null) {
+                return;
+            }
+
             _dataDict.Add(key, data);
         }
     }

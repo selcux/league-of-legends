@@ -23,8 +23,10 @@ namespace LeagueOfLegends.Helpers {
             return characters;
         }
 
-        public static ItemData GetItems() =>
-            JsonConvert.DeserializeObject<ItemData>(Read(ItemFilePath));
+        public static ItemData GetItems() {
+            var fileContent = Read(ItemFilePath);
+            return JsonConvert.DeserializeObject<ItemData>(fileContent);
+        }
 
         public static ItemData ItemData => _itemData ?? (_itemData = GetItems());
     }

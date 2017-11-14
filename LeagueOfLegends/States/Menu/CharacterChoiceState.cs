@@ -10,25 +10,38 @@ namespace LeagueOfLegends.States.Menu {
         }
 
         public override void Execute() {
-            var characters = DataProvider.GetCharacters() as IList<BaseCharacter>;
-
-            if (characters == null) {
+            if (!(DataProvider.GetCharacters() is IList<BaseCharacter> characters)) {
                 throw new ArgumentNullException("Karakter listesi bulunamadı.");
             }
 
             Console.Out.WriteLine(OutputFormatter.CharactersToString(characters));
-            Console.Out.Write("Bir karakter seç: ");
-            var choiceStr = Console.In.ReadLine();
+            int choice;
+            var loop = true;
+            do {
+                Console.Out.Write("Bir karakter seç: ");
+                var choiceStr = Console.In.ReadLine();
 
-            if (!int.TryParse(choiceStr, out var choice) || choice < 1) {
-                Console.Out.WriteLine("Hatalı giriş yaptınız tekrar deneyin.");
-            }
+                if (!int.TryParse(choiceStr, out choice) || choice < 1 || choice > characters.Count) {
+                    Console.Out.WriteLine("Hatalı giriş yaptınız tekrar deneyin.");
+                }
+                else {
+                    loop = false;
+                }
+            } while (loop);
 
             var character = characters[choice - 1];
-            var nextState = new HealthItemChoiceState(_manager);
+            var nextState = GetNextState(character);
 
             _manager.SetData(nextState, character);
             _manager.State = nextState;
+        }
+
+        protected override MenuState GetNextState(BaseCharacter character) {
+            if (character is Mage) {
+                return new HealthItemChoiceState(_manager);
+            }
+
+            return new AttackItemChoiceState(_manager);
         }
     }
 }
