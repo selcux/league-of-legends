@@ -1,14 +1,11 @@
 ﻿using System;
-using LeagueOfLegends.Helpers;
+using LeagueOfLegends.States.Menu;
 
 namespace LeagueOfLegends {
     class Program {
         private static void Main(string[] args) {
-            var characters = CharacterDataProvider.GetCharacters();
-
-            foreach (var character in characters) {
-                Console.Out.WriteLine(OutputFormatter.WriteLine(character));
-            }
+            var menu = new MenuManager();
+            menu.State = new CharacterChoiceState(menu);
 
             Console.ReadKey();
         }
